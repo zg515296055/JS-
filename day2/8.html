@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   /* alert(a);
+    console.log("a" in window);
+    if(!("a" in window)){
+        var a = 10;
+    }
+    alert(a);*/
+
+   /*console.log(fn);//标准浏览器 undefined
+   if(9==8){
+       function fn(){
+           alert(2);
+       }
+   }*/
+
+   //自执行函数 定义+执行一次性完成
+   //console.log(f);//报错
+   ~(function f(){
+       function f(){console.log(1)};
+       f();
+       function f(){console.log(2)};
+   })();
+</script>
