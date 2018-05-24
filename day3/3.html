@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="0">
+<input type="button" value="1">
+<input type="button" value="2">
+<input type="button" value="3">
+</body>
+</html>
+<script>
+    var oBtns = document.getElementsByTagName("input");
+    //思路1:自定义属性的方式
+    /*for(var i = 0;i<oBtns.length;i++){
+        oBtns[i].zhufeng = i;
+        oBtns[i].onclick = function(){
+            alert(this.zhufeng)
+        }
+    }*/
+    //思路2：利用闭包的机制
+   /* for (var i = 0; i < oBtns.length; i++) {
+        ~(function (i) {
+            oBtns[i].onclick = function () {
+                alert(i);
+            }
+        })(i);
+    }*/
+
+    //思路3：闭包2
+   /* for (var i = 0; i < oBtns.length; i++) {
+        oBtns[i].onclick = (function (i) {
+            return function () {
+                alert(i);
+            }
+        })(i)
+    }*/
+
+    //思路4：
+    /*for(var i = 0;i<oBtns.length;i++){
+            changeTab(i);
+    }
+    function changeTab(i){
+        oBtns[i].onclick  = function(){
+            alert(i);
+        }
+    }*/
+
+    //思路5 ：es6写法
+
+    for(let i = 0;i<oBtns.length;i++){
+        oBtns[i].onclick  = function(){
+            alert(i);
+        }
+    }
+
+
+
+
+
+
+</script>

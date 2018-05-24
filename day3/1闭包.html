@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var name = "lily";
+    var age  = 20;
+    ~(function(name,age){
+        var total = 10;
+        window.total = total; //把total赋值给全局下total变量
+
+         //下面这种不带var的定义方式不推荐
+         //name = "lucy";
+         //age = 30;
+
+      })(name,age)//函数运行的小括号传的实参（具体的值）
+       console.log(total);
+
+
+    /*( function( global, factory ) {
+        "use strict";
+    } )( typeof window !== "undefined" ? window : this, function( window, noGlobal ) {if ( !noGlobal ) {
+        window.jQuery = window.$ = jQuery;
+    }
+
+        return jQuery;
+    } );*/
+
+
+    function fn(){
+        var i = 0;
+        return function(){
+            i++;
+        }
+    }
+    fn();
+
+    //解决闭包公有和私有的问题
+    var utils = (function(){
+        var a = 10;
+        function get(){
+            console.log("get");
+        }
+        function set(){
+            console.log("set");
+        }
+        function fn2(){console.log("fn")};
+
+        return { //通过对象暴露内部的函数或变量
+            get:get,
+            set:set
+        }
+    })()
+//     fn2(); 获取不到里面的函数
+    utils.get() //获取闭包暴露出来的函数
+
+
+
+</script>

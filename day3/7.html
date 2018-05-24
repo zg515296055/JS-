@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+    <style type="text/css">
+        #div1{
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            background: orange;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            border-radius: 50%;
+            cursor: pointer;
+            -webkit-user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">0</div>
+</body>
+</html>
+<script>
+    //每次点击都累加1
+    var oDiv = document.getElementById("div1");
+   /* ~(function(){
+        var i = 0;
+        oDiv.onclick = function(){
+            this.innerHTML = ++i;
+        }
+    })()*/
+
+    /*oDiv.onclick = function(){
+        var i = 0;
+        return function(){
+            this.innerHTML = ++i;
+        }
+    }()*/
+
+    //自定义属性的方式
+    oDiv.index = 0;
+    oDiv.onclick = function () {
+        this.innerHTML = ++this.index;
+    }
+
+
+</script>

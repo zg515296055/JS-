@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function fn(){
+        var i=2;
+        return function(n){
+            console.log(n*i++);
+        }
+    }
+    var f=fn();
+    f(3);//6
+    fn()(6);//12
+    f(2);//6
+
+
+    //在运算时，i++和++i才有区别
+    //var i = 2;
+    //var n = 6;
+    //console.log(n * i++ * ++i + i-- + --i);
+    //console.log(n * i++);//i的值先和n相乘，运算结束后再自身累加
+    //console.log(n * ++i);//先i自身累加，再跟n相乘
+    //var a = i++;//先运算（赋值）后累加
+    // var b = ++i;//先累加后运算（赋值）
+    //console.log(b,i);
+</script>

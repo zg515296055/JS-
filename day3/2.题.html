@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var name='珠峰';
+    var age=300;
+    name=(function(name,age){
+        arguments[0]='珠峰培训';//arguments[0]和形参name是一一映射的关系
+        age=age && 10;
+        console.log(name,age);//"珠峰培训",undefined
+    })(name);
+    console.log(name,age)//undefined,300
+</script>
