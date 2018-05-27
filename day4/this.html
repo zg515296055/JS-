@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    * this  函数执行的主体
+    * 1、看点 点前边是谁 this就指向谁
+    * 2、自执行函数的this都是window
+    * 3、事件驱动的this ，都是事件驱动的元素
+    *
+    * */
+    // var oDiv = document.getElementById('div1');
+    // oDiv.onclick = function () {
+    //     this.zhufeng = 'aaa';
+    //     console.dir(this)
+    // };
+    // var obj = {
+    //     fn:function () {
+    //         console.log(this)
+    //     }
+    // };
+    // obj.fn();
+    //
+    //
+    // !function () {
+    //     console.log(this);
+    // }()
+
+    "use strict"
+    function fn() {
+        console.log(this);
+    }
+    fn();
+
+    window.fn();
+
+
+
+    var name = "windowsName";
+    var a = {
+        name: "Cherry",
+        fn : function () {
+            console.log(this.name);  // Cherry
+        },
+        fn2: (function () {
+            var name = 'zhufeng';
+            return function () {
+                console.log(name,this.name);
+            }
+        })()
+    };
+    var f = a.fn;
+    f();
+    a.fn();
+    window.a.fn();
+    a.fn2()
+
+
+
+
+
+
+    var name = "zhufengpeixun.com";
+    var person = {
+        name: "zhufeng",
+        pro: {
+            name: "peixun",
+            getName: function() {
+                return this.name;
+            },
+            getName2: function () {
+                return function () {
+                    return this.name
+                }
+            }
+        }
+    };
+    console.log(person.pro.getName());
+    var pepole = person.pro.getName;
+    person.pro.getName2()();
+    console.log(pepole());
+
+
+
+
+    num = 2;
+    var obj = {
+        num: 2,
+        fn: (function (num) {
+            this.num *= 2;
+            num +=1;
+            return function () {
+                this.num *=3;
+                ++num;
+                console.log(num)
+            }
+        })(num)
+    };
+    var fn = obj.fn;
+    fn();
+    obj.fn();
+
+
+
+    function a(num){
+        this.x=num;
+        return this;
+    };
+    var x=a(5);
+    var y=a(6);
+    console.log(x.x);
+    console.log(y.x);
+
+
+
+    for(var i = 0;i<oBtns.length;i++){
+           changeTab(i);
+    }
+    function changeTab(i){
+       oBtns[i].onclick  = function(){
+           alert(i);
+       }
+    }
+    changeTab(0);
+
+</script>

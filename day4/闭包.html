@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 闭包的形式
+    *
+    * 1、window.d = d;
+    * */
+    var fn = (function () {
+        var a = 12;
+        return function () {
+            a
+        }
+    })()
+
+    var fn = (function () {
+        var a = 12;
+        var get = function () {
+
+        };
+        return {
+            get:get,
+            a: a
+
+        }
+    })()
+
+</script>
