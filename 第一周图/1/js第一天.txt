@@ -1,0 +1,214 @@
+
+//id class style 固有属性//
+
+1、Js引入方式
+
+行内式
+内嵌式 ：最后边
+外链式
+
+
+1.5、通过ID名 操作页面元素
+
+    console.log(div1); 只支持标准浏览器支持 ie 不支持
+
+    document.getElementById("div1")
+    document 文档
+    . 从属的关系
+    get 获取
+    Element 元素
+    By 通过
+    Id id名div1
+
+    //具有唯一性
+
+2、Js调试代码的方式
+ - alert(1)[??l?:rt] ;适合简单的数据，在页面以弹框的方式展示    （常用）
+ - console.log [k?n?so?l]("把数据在控制台打印出来") 简单的信息  （常用）
+ - console.dir("把控制台打印详细的信息")            （常用）
+ - document.write("在页面展示数据")                （了解）
+ - confirm [k?n?f?:rm]("是否删除")                （了解）
+
+3、操作页面元素
+通过ID名，类名，标记名
+
+通过ID名:
+        必须保证页面上有一个Id名是div1，若找不到页面元素则返回null（空）
+        Uncaught TypeError: Cannot set property 'className' of null
+
+4、变量（变化的量）存储值 （通过var定义的是变量，可以存储不同的值，重新赋值 存储新的值）
+
+对储存的值更改 对变量多次利用 提高性能 节约内存空间
+
+var 变量名 = 值
+var oDiv = document.getElementById("div1");
+
+5、常量     （通过const定义的是常量，常量可以存储唯一的值，不能存储新的值）
+
+const 变量名 = 值
+const PI = 3.1415926；
+
+6、命名规范
+
+1.首字符不能数字，其他字符可以是数字，字母，下划线_,美元符$
+2.区分大小写
+3.若变量名由多个单词组成，建议采用驼峰式命名法（从第二个单词开始，首字符大写）
+addInfo delCon doSomething oDiv  stuInfo
+add del query insert ....
+o - object
+n - number
+str - string
+boo - boolean
+fn - function
+arr - array
+4.有特殊含义 _开头表示私有变量 美元符$开头的通常表示框架里定义的变量例如jquery
+5.不能是关键字和保留字（现在还没有变成关键字，但以后有可能变成关键字）
+
+js是弱类型的语言，变量的类型由值来决定
+
+js里的数据类型：                                   {console 中 ""是隐藏的}
+              基本类型的数据（值类型）
+              number（数类型）
+              string [str??](字符串) 带引号就是 不带引号的就是变量
+              boolean(布  尔)
+              null（空对象）
+              undefined (空白)
+
+typeof 检测数据类型
+instancenf检测对象的细分类型，检测一个对象是否属于这个类 true 或者false
+constructor 指向所述的类
+
+number（数类型）
+整数（正整数，负整数，0），小数，NaN(not a mumber)
+1.什么情况下是NaN?
+ - 做四则运算（+-*/%）失败时    %膜    余数
+ - 强制将其他数据类型转换成数类型失败时
+   Number() parseInt() parseFloat()  - JS天生就提供的三个强制转换的方法
+
+
+Number() 将其他数据类型转换成数类型
+
+parseInt()  将字符串中整数部分提取出来(从左到右一个一个提取，若首字符不是数字，则结果是NaN)
+
+parseFloat()  除了能提取整数部分，还能提取小数部分
+
+    console.log(str.length);//字符串长度
+    console.log(str[0]);   //下标第一个是0 最后一个是str.length-1
+    console.log(str[str.length-1]);
+
+
+Number() 转换为数字
+
+   Number(true)
+   1
+   Number(false)
+   0
+   Number(null)
+   0
+   Number(undefined)
+   NaN
+   Number("")
+   0
+
+   其他字符中 只要有一个字符不是数字 就是NaN {除了小数点}
+
+   Number("[]")
+   NaN
+   Number("abc13")
+   NaN
+   Number("13.5")
+   13.5
+   Number("13a")
+   NaN
+   Number("13.5a")
+   NaN
+   Number(".5")
+   0.5
+
+parseInt()  将字符串中整数部分提取出来(从左到右一个一个提取，若首字符不是数字，则结果是NaN)
+
+   parseInt("13a")
+   13
+   parseInt("a13")
+   NaN
+   parseInt(".5")
+   NaN
+   parseInt("0.5a")
+   0
+
+parseFloat()  除了能提取整数部分，还能提取小数部分
+
+
+   1.3
+   parseFloat("0.5a")
+   0.5
+   parseFloat("a10")
+   NaN
+
+检测一个数是否是有效数，也就若不是NaN则就是有效数
+isNaN() 若结果为false则是有效数，true则不是有效数
+isNaN()方法实现的步骤
+1.Namber() - > 整数小数或NaN
+2.isNaN(NaN) - > true
+  isNaN(整数小数) - > false
+
+
+boolean类型 布尔类型
+
+   只有俩个 true或flase
+
+   Boolean()强制将其他数据转换层boolean类型
+
+   规律：只有五个（0，null，undefined，""，NaN）为flase，其他全是 true
+
+   用途： 1.在条件判断那边需要强制转换成boolean类型
+         2.取反
+          ！[] = ! Boolean([]) = !true = flase
+
+string (字符串) 带引号就是 "" '' 必须成双成对
+
+     console.log(str.length);//字符串长度
+     console.log(str[0]);   //下标第一个是0 最后一个是str.length-1
+     console.log(str[str.length-1]);
+
+      //字符串拼接（那所有的字符靠在一起）
+
+         var str1 = "abc";
+         var str2 = "abcd";
+
+         console.log(str1 + str2);
+
+
+        10+"abc"
+        "10abc"
+
+        null+"abc"
+        "nullabc"
+
+        10+null+"abc"
+        "10abc"
+
+
+      操作变量时，是操作变量对应存储的值
+
+          var str3 = "ab'c"     双引号 只能用单引号
+          var str4 = 'ab"c'     单引号 只能用双引号
+
+          var str5 = "ab\"c"    \转义
+          var str4 = 'ab\c'
+
+          var str6 = "ab\tc"    \t   相当于Tab
+                                \r   相当于回车
+                                \n   相当于换行
+                                \r  \n 可以一起用
+
+
+null和undefined
+
+     null 暂时没有，以后会有
+
+     undefined 从来没有过
+
+null == undefined   == 表示比较     true
+                    ===严格比较（数据类型和值都相等） false
+

@@ -1,0 +1,25 @@
+0-62整数 
+
+function getRandom0(a, b) {
+        var ary = []
+        var str = 'UIOPAS012345';
+        str2 = ''
+
+        while(ary.length<6){
+            var temp = Math.floor(Math.random()*(b-a)+a);
+            if (ary.indexOf(temp) === -1){
+                ary[ary.length] = temp
+            }
+        }
+        //console.log(ary);
+        for(var i=0;i<ary.length;i++){
+            str2 = str2+ str[ary[i]]
+        }
+        return str2
+    }
+    console.log(getRandom0(0, 12));
+
+
+
+ 装完后右键git bash here  输入命令 git —version 看到版本号就算安装成功了
+

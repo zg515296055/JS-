@@ -1,0 +1,89 @@
+body{
+  *  width: 100px;  /*宽度*/
+  *  height :100px; /*高度*/
+  *  line-height:100px; /*行高*//*文字垂直居中*/谁用给谁
+ *   text-align: center;/*left,center,right水平方向居中*/
+    font-family: SimSun,"Microsoft YaHei"; /*字体*/
+  *  list-style:none;去掉列表样式（无序列表前的小黑点，有序列表前的序号）
+  *  text-decoration: none 清除下划线
+ *  在不设置宽高时，宽高由内容决定的 float position 行内元素
+   *transition: all .3s; 过度 动画
+   *    age Mode shows headers, footers, footnotes and page numbers. 
+     页面模式可以显示页眉、页脚、脚注和页码。
+  *  /*实现单行文本以省略号的方式显示*/
+        width:100px;/*宽高*/
+        overflow: hidden;/*超出隐藏*/
+        white-space: nowrap;/*强制不换行*/
+        text-overflow: ellipsis;/*超出文本裁切的方式*/
+
+   /*opacity 透明度*/ 给盒子上面加一个盒子设置
+    opacity: 0.2;/*值：0-1  兼容高版本浏览器*/
+    filter: alpha(opacity=20);/*值：0-100  兼容低版本浏览器*/
+    *span:nth-child() 第几个加 就填几
+   *PC 移动分离用 /*参照 iphone5/5s 320 */
+html {
+    font-size: 100px; /* 1rem = 100px */
+}
+
+@media screen and (min-width: 375px) {
+    html {
+        font-size: 117.1875px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    html {
+        font-size: 129.375px;
+    }
+}
+
+
+<input type="number"> 数字<br>
+<input type="email"> 邮箱<br>
+<input type="file"> 上传文件<br>
+<input type="search"> 搜索框
+
+
+    font-size : 16px ;/*字体大小*/
+    font-style :dditalic; /*字体风格*/
+  @  font-weight: bold; /*字体加粗*/
+    color: #ccc;/*字体颜色*/
+    border:10px solid red;/*边框*/
+
+    letter-spacing: 10px; /*字间距*/
+    text-indent: 2em; /*首行缩进*/
+    margin-top:10px;/*上外边距*/
+      四个都设置，，上右下左顺序
+
+  * margin:10px;/*四边外边距*/	
+    padding-top:10px;/*上内边距*/
+ *   padding :10px;/*可以设置一,二,三,四种值.内边距*/
+    float:left;/*right  左浮动,右浮动*/
+    clear :both ;/*清除浮动,,清除左浮动或者右浮动*/
+    position:relative;/*相对定位*/
+    position:absolute;/*绝对定位*/
+    position:fixed;/*固定定位*/
+    z-index: 1;/*设置层叠元素的上下位置*/
+
+  *  background-color: #ddd;/*背景颜色*/
+   * background-image:url("");/*背景图片*/
+   * background-repeat: ;背景图片的平铺方式
+    no-repeat  不平铺
+    * background-position:10px 10px;改变背景图片位置
+   * background: yellow url("pic1.png") no-repeat center center;
+        
+        background:颜色 图片路径 图片是否平铺 改变图片的位置
+        
+    *background-size:100% 100%;!*改变背景图的大小
+
+
+    overflow: hidden;/*溢出部分隐藏*/
+    visibility: hidden;/*隐藏*/
+    display:block;/*设为块状元素*/
+    display:inline;/*设为行内元素*/
+    display:inline-block;/*非块状元素的块状盒子*/
+    display: none;/*隐藏*/
+    opacity:0.5;/*设置透明度*/
+    filter:alpha(opacity=50)/*设置透明度 兼容ie低版本8以下*/
+}
+
