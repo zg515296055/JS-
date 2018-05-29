@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>复习</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*
+    * 变量提升
+    * */
+    var foo = 1;
+    function bar() {
+        if(!foo){
+            var foo = 10;
+        }
+        console.log(foo);
+    }
+    bar()
+
+    /*
+    * 闭包
+    * */
+
+    var name='珠峰';
+    var age=300;
+    name=(function(name){
+        // console.log(arguments[0],arguments[1]);
+        arguments[0]='珠峰培训';//name = 'zfpx'
+        arguments[1]=100;
+        console.log(arguments[0],arguments[1]);
+        age=age && 10;
+        console.log(name,age);
+    })(name,age);
+    console.log(name,age);
+
+    /*
+    * this
+    * */
+
+    var name = "windowsName";
+    var a = {
+        name: "Cherry",
+        fn : function () {
+            // console.log(this.name);  // Cherry
+                return function () {
+                console.log(this.name)
+            }
+        }
+    }
+    var fn =a.fn();
+    fn();
+    a.fn()();
+    odiv.onclick = function () {
+        //this ==>window
+        return function () {
+            //this==>odiv
+            console.log(1)
+        }
+    }()
+</script>

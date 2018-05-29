@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   /* console.log(f);//undefined
+    var f = function fn(){
+        console.log(1);
+    };
+    f();*/
+
+    /*function fn() {
+        console.log(sum);
+        return function sum(){};
+        var sum = 10;
+    }
+    fn();*/
+
+    /*console.log(a);
+    function a(){
+        console.log(1);
+    }
+    var a = 10;
+    a();//"a is not a function"*/
+
+
+
+   fn();//2
+   function fn(){console.log(1)};
+   fn();//2
+   var fn = 13;
+   fn();//报错 "fn is not a function"
+   function fn(){console.log(2)};
+   fn();
+
+
+</script>

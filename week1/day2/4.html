@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    /*var n=13;
+    function fn(n){ //形参n和私有变量n是一个
+        alert(n);
+        var n=14;
+        alert(n);
+    }
+    fn(n);*/
+
+
+
+    //var n = 13;//window.n = 13 多了一个变量提升阶段
+    //n = 13;//window.n = 13
+    /*function fn(){
+         //console.log(n);
+         n = 15;//改的是全局n的值
+         console.log(n);
+    }
+    fn();
+    alert(n);*/
+    var n = 10;
+    function outer(){
+        var n = 15; //outer函数私有的变量n
+        function inner(){//继续往上找
+            function center(){
+                alert(n);//center作用域里没有私有变量n,上级作用域inner,
+                          //n找到outer函数里的私有变量n
+            }
+            center();
+        }
+        inner();
+    }
+    outer()
+
+
+</script>

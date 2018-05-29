@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    var content = "window的内容";
+//    function fn(){
+//        console.log(this);
+//        console.log(this.content);
+//    }
+//    var obj = {
+//        content:"obj的内容",
+//        fn:fn
+//    }
+//    fn();//"window的内容";
+//    obj.fn();//"obj的内容"
+
+
+   /* ~(function(){
+        console.log(this);
+    })()*/
+
+    var num = 20;
+    var obj = {
+        num:10,
+        fn:(function(num){
+            console.log(num);
+            return function(){}
+        })(num)    //obj.num 会报错，自执行函数执行时obj没有值是undefined   //num 找的是全局下num
+    }
+
+</script>

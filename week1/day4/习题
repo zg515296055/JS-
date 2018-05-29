@@ -1,0 +1,370 @@
+//变量提升习题
+
+
+
+
+
+"use strict"
+function fn() {
+    console.log(this);
+}
+fn();
+window.fn();
+
+
+function test() {
+    this.x = 1;
+    alert(this.x);
+}
+
+test();
+
+//1this
+var num = 1;
+var obj = {
+    num: 2,
+    fn: (function (num) {
+        this.num *= 2;
+        num +=1;
+        return function () {
+            this.num *=3;
+            ++num;
+            console.log(num)
+        }
+    })(num)
+};
+var fn = obj.fn;
+fn();
+obj.fn();
+console.log(num, obj.num);
+
+//2  this
+
+var name = "zhufengpeixun.com";
+var person = {
+    name: "zhufeng",
+    pro: {
+        name: "peixun",
+        getName: function() {
+            return this.name;
+        },
+        getName2: function () {
+            return function () {
+                return this.name
+            }
+        }
+    }
+};
+console.log(person.pro.getName());
+var pepole = person.pro.getName;
+person.pro.getName2()();
+console.log(pepole());
+
+
+//3 this
+var name = "windowsName";
+var a = {
+    name: "Cherry",
+    fn : function () {
+        console.log(this.name);  // Cherry
+    }
+}
+a.fn();
+window.a.fn();
+
+
+//4 this
+function a(xx){
+    this.x=xx;
+    return this
+};
+var x=a(5);var y=a(6);
+console.log(x.x);
+console.log(y.x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+//2、===============================
+// a();
+// var a = c = function() {
+//     console.log(2)
+// };
+// a();
+//
+// function a() {
+//     console.log(1)
+// };
+// a();
+
+
+//1 作用域习题
+var n = 10;
+function outer(){
+    var n = 15;
+    function inner(n){
+        console.log(n)
+        function center(){
+            console.log(n);
+        }
+        center();
+    }
+    inner(n);
+}
+outer()
+
+//3、===============================
+function a() {
+    console.log(1)
+};
+(function(b) {
+    b(), c();//1 - 2 undefined -2
+    var b = c = function a() {
+        console.log(3)
+    };
+    b();//3 3
+})(a);
+c();// 报错 3
+
+//4JS引用数据类型操作过程=================================
+// var ary=[10,30,50];
+// function fn(n){
+//     n.push(40);
+//     console.log(n);//[10,30,50,40]
+//     n=[];
+//     n[n.length]=100;
+//     console.log(n)//[100]
+// }
+// fn(ary)
+// console.log(ary);//[10,30,50,40]
+
+
+
+//5==================================
+// var a = 1;
+// function fn() {
+//     console.log(a);
+//     var a = 5;
+//     console.log(a);
+//     a++;
+//     var a ;
+//     fn3();
+//     fn2();
+//     console.log(a);
+//     function fn2() {
+//         console.log(a);
+//         a = 20;
+//     }
+// }
+//
+// function fn3() {
+//     console.log(a);
+//     a = 200;
+// };
+// fn();
+// console.log(a);
+
+
+
+//6==========================
+// if (!("aa" in window)) {
+//     var aa = 1;
+//     // function aa() {
+//     //     console.log(aa)
+//     // }
+// }
+// console.log(aa);
+
+
+//7=============================
+// var str= "我是MT";
+// test();
+// function test() {
+//     console.log(str);
+//     var str= "哈哈哈";
+//     console.log(str);
+// }
+// console.log(str);
+//7.1=============================
+// var str= "我是MT";
+// test();
+// function test() {
+//     console.log(str);
+//     str= "哈哈哈";
+//     console.log(str);
+// }
+// console.log(str);
+
+
+//8=========================
+function test(){
+    if("a" in window){
+        var a = 10;
+    }
+    console.log(a);
+}
+//
+test();
+//8.1================================
+if("a" in window){
+    var a = 10;
+}
+console.log(a);
+
+
+//================
+// var a;
+// function foo(a) {
+//     return a;
+// }
+// function bar(a) {
+//     a = 'bye';
+//     return a;
+// }
+// foo();
+// bar();
+
+
+
+//================
+// var a = 10;
+// function aaa(){
+//           alert(a);
+// }
+// function bbb(){
+//      var a = 20;
+//      aaa();
+// }
+// bbb()
+
+
+//9=============================
+var foo = 1;
+function bar() {
+    if(!foo){
+        var foo = 10;
+    }
+    console.log(foo);
+}
+bar()
+
+
+//10原型链习题
+function Foo() {
+    getName = function(){
+        console.log("1");
+    };
+    return this;
+}
+Foo.getName = function() {
+    console.log("2");
+};
+
+Foo.prototype.getName = function(){
+    console.log("3");
+};
+
+var getName = function() {
+    console.log("4");
+};
+function getName(){
+    console.log("5");
+}
+Foo.getName();
+getName();
+Foo().getName();
+getName();
+new Foo.getName();
+new Foo().getName();
+new new Foo().getName();
+
+//11=======================
+var name='珠峰';
+var age=300;
+name=(function(name){
+    arguments[0]='珠峰培训';//arguments[0]和形参name是一一映射的关系
+    age=age && 10;
+    console.log(name,age);//"珠峰培训",undefined
+})(name);
+console.log(name,age)
+
+
+//闭包
+function fn(){
+    i=2;
+    return function(n){
+        console.log(n*i++);
+    }
+}
+var f=fn();
+f(3);
+fn()(4);
+f(2);
+
+var i = 5;
+function fn(){
+    i+=2;
+    return function(n){
+        console.log(n+--i);
+    }
+}
+var f = fn();
+f(3);
+fn()(4);
+f(5);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

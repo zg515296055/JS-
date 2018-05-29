@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    f = function(){return true};
+    g = function(){return false};
+    (function (){
+        console.log(g);//标准浏览器下,function只声明不定义 g输出的值为undefined
+        if(g()&&[]==![]){
+            f = function f(){return false};
+            function g(){return true};
+        }
+    })();
+    alert(f());//IE下false
+    alert(g())//IE下false
+</script>

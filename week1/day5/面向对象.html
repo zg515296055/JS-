@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>面向对象</title>
+</head>
+<body>
+    <div id="div1">珠峰培训</div>
+</body>
+</html>
+<script type="text/javascript">
+    /*
+    * 面向对象 （OOP） 面向过程
+    * 他们是一种编程思想，
+    * 面向过程  C
+    * 面向对象 JS java PHP ...
+    * */
+
+
+    /*
+    * 类
+    *
+    * 实例
+    *
+    * */
+    //String
+    //Number
+    //Boolean
+    //null;
+    //undefined
+    var str = 'qq';
+    //str 就是String大类的一个实例
+    var num = 1;
+    //num 就是Number大类的一个实例
+
+
+    /*Object
+    Array ---> []
+    RegExp
+    Date
+
+    Function*/
+
+    /*
+    * document --> HTMLDocument -->
+    * Document --> Node -->EventTarget --> Object
+    *
+    * 小男孩 -> 男性 ->
+     * 人类  -> 动物 -> 生物 -> 地球
+    * */
+
+    //prototype
+
+    // 一个类的实例的__proto__ 是指向所属类的原型（prototype）
+    // Object.prototype == obj.__proto__  = true
+
+    //？？？？？？？？？？？？EventTarget.__proto__ ==Object.prototype
+
+    //原型链  本质就是一种查找机制  查找是根据__proto__这个属性向上一级一级查找
+    //直到找到Object这个基类的原型，若还还没有,则在执行函数的时候直接报错
+    //原型链是查找方法和属性用的， 作用域链是查找变量用的
+
+
+
+
+    /*类和实力
+    * 自然界分为 动物类 植物类  塑料类（人造的） 物质类
+    * JS 分为 数字类（Number） 字符串类（String） 布尔类（Boolean） 对象类（Object）
+    * 自定义类
+    *
+    * */
+
+    //根据类去创建一个实例  【new 类】
+    var ary1 = [1,2,3];
+    var ary2 = [12,23,34];
+    console.log(ary1.__proto__ === Array.prototype);
+
+
+    //每一个对象都有一个天生自带的属性 __proto__  指向所属类的原型（prototype）
+    //每一个函数都有一个天生自带的属性叫 prototype，是一个对象 ；（原型）
+    //原型上都有一个constructor 指向自身函数
+
+
+    //__proto__ 都是指向这个实例所属类的原型（prototype）
+
+    //每一个函数都是 Function这个类的 一个实例
+
+
+
+</script>

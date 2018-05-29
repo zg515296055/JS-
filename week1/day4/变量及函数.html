@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>变量及函数</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var a;
+    let b = 2;
+    const c = 12;
+
+
+
+    fn1();//1
+    function fn1() {
+        console.log(1)
+    }
+    fn1();//1
+    var fn1 = function () {
+        console.log(2);
+    }
+    fn1();//2
+
+
+    var ary=[10,30,50];
+    function fn(n){
+        n.push(40);
+        console.log(n);
+        n=[];
+        n[n.length]=100;
+        console.log(n)
+    }
+    fn(ary);
+    console.log(ary)
+
+
+
+    //全局作用于销毁   关闭页面的时候销毁
+    //私有作用域销毁  立即销毁  不立即销毁  不销毁
+    //堆内存销毁
+
+
+    //变量提升
+   /*
+   * 所有代码执行之前都要在当前作用域下把 带var  function 的代码提前声明
+   * var 只声明 不定义
+   * function  声明加定义  如果在条件语句里边 标准浏览器下只声明不定义 IE下声明加定义
+   *
+   *
+   * */
+</script>

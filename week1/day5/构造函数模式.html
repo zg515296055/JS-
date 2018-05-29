@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>构造函数模式</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    function Fn(name,age) {
+        this.name = name;
+        this.age = age;
+        this.giveInfo = function () {
+            console.log('my name is ' + this.name +', age is'+this.age )
+        }
+    }
+    // Fn.prototype.getName = function () {
+    //     console.log(this.name)
+    // };
+    var p1 = new Fn;
+    console.log(p1);
+    // var p2 = new Fn('xiaoming2',182);
+    // console.log(p2);
+    // p1.getName();
+    // Fn.prototype.getName()
+
+
+    /*
+    * 通过new执行函数 ，会return this的地址 ，
+    * 除非手动把return的值改成一个对象
+    * 其他情况都是return的this
+    * 函数中的this 就是通过new创建的实例
+    *
+    * 普通函数执行，this指向遵循前边讲过的3种情况
+    * */
+    function Foo() {
+        getName = function(){
+            console.log("1");
+        };
+        // this.getName = function () {
+        //     console.log(333333)
+        // }
+        return this;
+    }
+    Foo.getName = function() {
+        console.log("2");
+    };
+
+    Foo.prototype.getName = function(){
+        console.log("3");
+    };
+
+    var getName = function() {
+        console.log("4");
+    };
+    function getName(){
+        console.log("5");
+    }
+    Foo.getName();//2
+    getName();//4
+    Foo().getName();//1
+    getName();//1
+    new Foo.getName();//2
+    new Foo().getName();//3
+    foo.getName()
+
+    new new Foo().getName();//3
+    // new  foo.getName()
+
+
+
+
+</script>

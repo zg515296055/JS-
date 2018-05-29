@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>工厂模式</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // function Fn(name,age) {
+    //     this.name = name;
+    //     this.age = age;
+    //     this.giveInfo = function () {
+    //         console.log('my name is ' + this.name +', age is'+this.age )
+    //     }
+    // }
+    function Fn(name,age) {
+        return{
+            name:name,
+            age:age
+        }
+    }
+    var p1 = Fn('xiaohong',16);
+    console.log(p1);
+    var p2 = Fn('xiaoming',19);
+    console.log(p2);
+</script>

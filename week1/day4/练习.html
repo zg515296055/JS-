@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    a();//1
+    var a = c = function() {
+        console.log(2)
+    };
+    a();//2
+    function a() {
+        console.log(1)
+    };
+    a();//2
+
+
+
+
+    var n = 10;
+    function outer(){
+        n = 15;
+        function inner(){
+            ++n;
+            console.log(n);
+            function center(){
+                n+=2;
+                console.log(n);
+            }
+            center();
+        }
+        inner();
+    };
+    outer();
+    console.log(n)
+
+
+    //3
+    function a() {
+        console.log(1)
+    };
+    function c() {
+        console.log(2)
+    }
+    (function(b) {
+        b(), c();
+        var b = c = function a() {
+            console.log(3)
+        };
+        function b(){
+            console.log(4)
+        }
+        b();
+    })(a);
+    c();
+
+
+    //4
+    var a = 1;
+    function fn() {
+        console.log(a);//u
+        var a = 5;
+        console.log(a);//5
+        a++;//6
+        var a ;
+        fn3();//1
+        fn2();//6
+        console.log(a);//20
+        function fn2() {
+            console.log(a);
+            a = 20;
+        }
+    }
+    function fn3() {
+        console.log(a);
+        a = 200;
+    };
+    fn();
+    console.log(a);//200
+
+
+
+    if (!("aa" in window)) {
+        var aa = 1;
+    }
+    console.log(aa);
+
+
+
+
+    // var str= "我是MT";
+    test();
+    function test() {
+        // console.log(str);
+        str = "哈哈哈";
+        console.log(str);
+    }
+    console.log(str,window.str);
+
+
+
+
+    if("a" in window){
+        var a = 10;
+    }
+    console.log(a);
+
+
+    function test(){
+        if("a" in window){
+            a = 10;
+        }
+        console.log(a);//报错
+    }
+    function test(){
+        if("a" in window){
+            var a = 10;
+        }
+        console.log(a);//undefined
+    }
+    test();
+
+
+
+    var a;
+    function foo() {
+        return a;
+    }
+    function bar() {
+        // a = 'bye';
+        arguments[0] = 'bye';
+        return arguments[0];
+    }
+
+    // console.log(bar());
+    console.log(bar(a));
+    // console.log(foo());
+    // console.log(bar());
+    console.log(a)
+
+
+
+    var a = 10;
+    function aaa(){
+        alert(a);
+    }
+    function bbb(){
+        var a = 20;
+        aaa();
+    }
+    bbb()
+
+
+
+    var foo = 1;
+    function bar() {
+        if(!foo){
+            var foo = 10;
+        }
+        console.log(foo);
+    }
+    bar();
+    console.log(foo);
+
+
+    var foo = 0;
+    function bar() {
+        if(foo){
+            foo = 10;
+        }
+        console.log(foo);
+    }
+    bar();
+    console.log(foo);
+
+
+    function test(){
+        this.x = 1;//window.x = 1;
+        alert(this.x);
+    }
+    window.test();// 严格 非严格都是 1
+    test();//严格模式下报错 非严格模式就是1
+
+
+
+    var a = 12;
+    b = 15;
+
+
+
+
+</script>

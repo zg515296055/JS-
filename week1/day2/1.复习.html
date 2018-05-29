@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<ul id="list">
+    <li>111</li>
+    <li>222</li>
+    <!--注释部分-->
+    <li id="li3">333</li>
+    <li>444</li>
+    <li>555</li>
+</ul>
+</body>
+</html>
+<script>
+    /**
+     * @param 指定的元素
+     * @return ary 获取指定元素所有的子元素节点并放入数组中返回
+     */
+    /*function getChildren(ele){
+        var ary = [];
+        //1.找到所有的子节点
+        var childs = ele.childNodes;
+        //2.从所有的子节点中筛选中子元素节点
+        for(var i = 0;i<childs.length;i++){
+            var cur = childs[i];//每一个节点
+            if(cur.nodeType == 1){
+               // ary.push(cur);
+                ary[ary.length] = cur;
+            }
+        }
+       return ary;
+    }
+    var oUl = document.getElementById("list");
+    getChildren(oUl);*/
+
+    /**
+     *
+     * @param ele 某一个元素
+     * @return ele的相邻的哥哥元素节点
+     */
+    //找哥哥节点，判断下是否存在，若存在则判断下是否是哥哥元素节点，若是则返回，若不是元素节点，继续基于找到的这个节点往上查找直到找到哥哥元素节点
+    function getPrev(ele){
+        var pre = ele.previousSibling;//哥哥节点
+        //1.判断是否存在
+        while(pre){
+            if(pre.nodeType===1){
+                return pre;
+            }
+            pre = pre.previousSibling //基于找到的节点继续往上查找，找到节点再保存在pre变量里
+        }
+       return pre;//显示人品，没找到告诉别人是null
+    }
+    var oLi3 = document.getElementById("li3");
+    getPrev(oLi3);
+
+
+    /**
+     * @param ele 指定的某一个元素
+     * @return ele元素的索引
+     */
+    //有几个哥哥元素节点，索引就是几
+   function getIndex(ele){
+       var n = 0;
+       var pre = getPrev(ele);//哥哥元素节点
+       while(pre){
+           n++;
+           pre = getPrev(pre);
+       }
+       return n;
+   }
+    var oLi3 = document.getElementById("li3");
+    console.log(getIndex(oLi3));
+</script>
